@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="js/vue.js" ></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var c=new Vue({
+				el:'#box',
+				data:{
+					msg:'welcome vue.js!'
+				}
+			});
+			
+			var app2=new Vue({
+				el:"#app-2",
+				data:{
+					message:'yyyyyy'+new Date()
+					
+				}
+				
+			})
+
+			var app3 = new Vue({
+			
+				el: "#app-3",
+				data:{
+					seen:true
+				}
+			
+			})
+
+			
+
+
+
+		}
+	</script>
+</head>
+
+
+
+<body>
+	<div id="box">
+	 {{ msg }}
+	</div>
+
+	<div id="app-2">
+		<span v-bind:title="message">
+			 Hover youre 
+		</span>
+	</div>
+	<div id="app-3">
+		<p v-if="seen">Now you see me</p>
+	</div>
+
+	
+</body>
+</html>

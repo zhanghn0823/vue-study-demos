@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm= new Vue({
+				el:'#box',
+				data:{
+					message:'hello'
+				}
+				
+			});
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box">
+		{{'welcome'|uppercase}}
+		<br />
+		{{'WELCOME' | lowercase}}
+		<br />
+		<div>{{ message | capitalize }}</div>
+		<br />
+		{{12|currency}}
+	</div>
+</body>
+</html>

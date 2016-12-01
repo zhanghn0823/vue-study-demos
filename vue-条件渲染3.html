@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var vm = new Vue({
+				el: "#box",
+				data: {
+				  
+				}
+				
+				
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<!--另一个根据条件展示元素的选项是 v-show 指令。用法大体上一样：-->
+		<!--不同的是有 v-show 的元素会始终渲染并保持在 DOM 中。
+		v-show 是简单的切换元素的 CSS 属性 display 。-->
+		<!--注意 v-show 不支持 <template> 语法。-->
+		<h1 v-show="ok">Hello!</h1>
+	</div>
+</body>
+</html>

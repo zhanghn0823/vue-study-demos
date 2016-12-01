@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		.gray{
+			background: gray;
+		}
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var vm = new Vue({
+				el: "#box",
+				data: {
+					myData:[],
+					t1:'',
+					now:-1
+
+				},
+				methods: {
+					get:function(e){
+						if(e.keyCode==38||e.keyCode==40)return;// 按上下键时 不执行输入框中更新文本的请求
+						if(e.keyCode==13){//回车键
+							window.open('https://www.baidu.com/s?wd='+this.t1)//确定输入框中内容的搜索 
+							this.t1="";  //确定之后 输入框文本为空
+						}
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su'
+						,{
+							wd:this.t1
+						},{
+							jsonp:'cb'  //callback
+						}).then(function(res){
+							this.myData=res.data.s;
+						},function(){
+							 
+						});
+					},
+					changeDown:function(){
+						this.now++;
+						if(this.now==this.myData.length)this.now=-1;
+						this.t1=this.myData[this.now];
+					},
+					changUp:function(){
+						this.now--;
+						if(this.now==-2)this.now=this.myData.length-1;
+						this.t1=this.myData[this.now];
+
+					},
+					sousuo:function(){
+						window.open('https://www.baidu.com/s?wd='+this.t1)//点击确定输入框中内容的搜索 
+							this.t1="";
+					}
+					
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model="t1" @keyup="get($event)" @keydown.down="changeDown()" @keydown.up.prevent="changUp()"/> 
+		<input type="button" name="" id="" value="搜索"  @click="sousuo()"/>
+		<ul>
+			<li v-for="(value,index) in myData" :class="{gray:index==now}">
+				{{value}}
+			</li>
+		</ul>
+		<p v-show="myData.length==0">暂无数据...</p>
+	</div>
+</body>
+</html>

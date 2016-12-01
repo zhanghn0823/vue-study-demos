@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var vm = new Vue({
+				el: '#example-2',
+				data: {
+				  parentMessage: 'Parent',
+				
+				  items:[
+				  	{message:'qqqqqqq'},
+				  	{message: 'aaaaaaa'}
+				  	
+				  ]
+				}
+				
+				
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul id="example-2">
+		  <li v-for="(item, index) in items">
+		  	<!--你也可以用 of 替代 in 作为分隔符，
+		  	因为它是最接近 JavaScript 迭代器的语法：
+		  	<div v-for="item of items"></div>
+		  	-->
+		    {{ parentMessage }} - {{ index }} - {{ item.message }}
+		  </li>
+		</ul>
+	</div>
+</body>
+</html>

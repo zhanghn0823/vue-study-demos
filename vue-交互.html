@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm= new Vue({
+				el:'#box',
+				data:{
+					
+				},
+				methods:{
+					get:function(){
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							wd:'c'
+						},{
+							jsonp:'cb' //callback 名字  默认一般为callback
+						}).then(function(res){
+							alert(res.data.s);
+						},function(res){
+							alert(res.status);
+						});
+					}
+				}
+				
+			});
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input type="button" value="按钮" @click="get()" />
+	</div>
+</body>
+</html>

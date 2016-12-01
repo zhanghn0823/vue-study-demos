@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var vm = new Vue({
+				el: "#box",
+				data: {
+				  
+				}
+				
+				
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<!--可以用 v-else 指令给 v-if 或 v-show 添加一个 “else” 块：-->
+			<div v-if="Math.random() > 0.5">
+			  Sorry
+			</div>
+			<div v-else> <!--v-else 元素必须紧跟在 v-if 或 v-show 元素的后面——否则它不能被识别。-->
+				
+			  Not sorry
+			</div>
+	</div>
+</body>
+</html>

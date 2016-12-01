@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var example1 = new Vue({
+			  el: '#example-1',
+			  data: {
+			    counter: 0
+			  }
+			})
+		};
+	</script>
+</head>
+<body>
+	<div id="example-1">
+	  <button v-on:click="counter += 1">增加 1</button>
+	  <p>这个按钮被点击了 {{ counter }} 次。</p>
+	</div>
+</body>
+</html>

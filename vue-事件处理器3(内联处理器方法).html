@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		
+		
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			
+			var example2 = new Vue({
+			 
+			  el: '#example-3',
+			  methods: {
+			    say: function (message) {
+			      alert(message)
+			    },
+			    warn: function (message, event) {
+				    // 现在我们可以访问原生事件对象
+				    if (event) event.preventDefault()
+				    alert(message)
+				  }
+			  }
+			})
+
+		};
+	</script>
+</head>
+<body>
+	<div id="example-3">
+	  <button v-on:click="say('hi')">Say hi</button>
+	  <button v-on:click="say('what')">Say what</button>
+	  <hr />
+	  <!--在内联语句处理器中访问原生 DOM 事件。可以用特殊变量 $event 把它传入方法-->
+	  <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+
+	</div>
+</body>
+</html>
